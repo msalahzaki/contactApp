@@ -2,7 +2,6 @@ import 'package:contact_app/Screens/addUser.dart';
 import 'package:contact_app/Screens/noContact.dart';
 import 'package:contact_app/model/contact.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'contactInfo.dart';
 
 class Home extends StatefulWidget {
@@ -26,33 +25,24 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Image.asset(
+         flexibleSpace: Image.asset(
           'assets/images/Logo.png',
           fit: BoxFit.contain,
           alignment: Alignment.topLeft,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) => Adduser(addContact),
-           // isDismissible: false,
-          );
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton : addFloatButton(),
       body:contacts.length == 0 ? Nocontact():ContactInfo(contacts: contacts,deleteContact:deleteContact,)
 
     );
   }
   initContacts(){
     contacts= [
-      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+2012569852", image: "assets/images/1.jpg"),
-      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+2012569852", image: "assets/images/2.png"),
-      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+2012569852", image: "assets/images/3.jpg"),
-      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+2012569852", image: "assets/images/Messi.jpg"),
-      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+2012569852", image: "assets/images/1.jpg"),
+      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+201228558662", image: "assets/images/1.jpg"),
+      Contact(name: 'Ahmed Mahmoud', email: "Email2@Domain.com", phone: "+201228558662", image: "assets/images/2.png"),
+      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+201228558662", image: "assets/images/3.jpg"),
+      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+201228558662", image: "assets/images/Messi.jpg"),
+      Contact(name: 'Leo Messi', email: "Email@Domain.com", phone: "+201228558662", image: "assets/images/1.jpg"),
      ];
   }
   void addContact(String name,String email, String phone ,String image,bool isFile ){
@@ -66,4 +56,21 @@ class _HomeState extends State<Home> {
     setState(() {
     });
   }
+
+
+Widget? addFloatButton () {
+  if (contacts.length < 6) {
+    return FloatingActionButton(
+      onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          builder: (context) => Adduser(addContact),
+          // isDismissible: false,
+        );
+      },
+      child: const Icon(Icons.add),
+    );
+  }
+  return null ;
+}
 }

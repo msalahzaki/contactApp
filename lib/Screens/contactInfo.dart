@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:contact_app/Screens/home.dart';
+
 import 'package:contact_app/core/util/color_palette.dart';
 import 'package:flutter/material.dart';
 
