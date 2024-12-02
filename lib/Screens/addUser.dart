@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Adduser extends StatefulWidget {
-  Function (String,String,String,String,bool)addContact;
-  Adduser( this.addContact);
+ final Function (String,String,String,String,bool)addContact;
+  const Adduser( this.addContact);
 
   @override
   State<Adduser> createState() => _AdduserState();
