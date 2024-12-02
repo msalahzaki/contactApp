@@ -68,7 +68,7 @@ class ContactInfo extends StatelessWidget {
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10)),
-                    child: SizedBox(height: 150,
+                    child: SizedBox(
                       child: ! contacts[index].isFile ?
                       Image.asset(
                         contacts[index].image,
